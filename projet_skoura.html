@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سكورة — واحة النخيل</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Aref Ruqaa', 'Cairo', serif;
+}
+
+body {
+  margin: 0;
+  background: #f7f3e9;
+  color: #242c25;
+  direction: rtl;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+header {
+  background: #245747;
+  color: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  min-height: 480px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 32px;
+  padding: 60px 8%;
+  background: linear-gradient(120deg, #f4e8d0, #e9d2a8, #c9d6b4);
+  color: #24392d;
+}
+
+.eyebrow {
+  font-size: .9rem;
+  color: #56755c;
+  font-weight: bold;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 5.8vw, 5rem);
+  line-height: 1.2;
+  margin: 16px 0 22px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.cta {
+  display: inline-block;
+  background: #245747;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 14px 22px;
+  margin-top: 14px;
+}
+
+.art {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.oasis-art {
+  width: 100%;
+  max-width: 420px;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 48% 48% 18px 18px;
+  background: linear-gradient(#e6bd7d 0 34%, #d5a56a 35% 46%, #8aa77b 47% 100%);
+}
+
+.sun {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  background: #fff0c7;
+  border-radius: 50%;
+  right: 50px;
+  top: 35px;
+}
+
+.mountain {
+  position: absolute;
+  bottom: 80px;
+  left: -10%;
+  width: 120%;
+  height: 130px;
+  background: #b9805b;
+  clip-path: polygon(0 100%, 15% 35%, 29% 72%, 49% 5%, 66% 65%, 82% 28%, 100% 100%);
+}
+
+.field {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 105px;
+  background: repeating-linear-gradient(168deg, #587e55 0 10px, #78966b 11px 20px);
+}
+
+.palm {
+  position: absolute;
+  bottom: 65px;
+  width: 10px;
+  height: 140px;
+  background: #594936;
+  border-radius: 8px;
+}
+
+.palm:before {
+  content: '';
+  position: absolute;
+  width: 110px;
+  height: 65px;
+  left: -50px;
+  top: -18px;
+  background: #285b3d;
+  clip-path: polygon(50% 50%,0 12%,42% 40%,18% 0,50% 35%,80% 0,60% 42%,100% 15%,68% 58%,96% 72%,58% 68%);
+}
+
+.p1 { left: 27%; transform: scale(.8) rotate(-7deg); }
+.p2 { left: 52%; transform: scale(1.05) rotate(3deg); }
+.p3 { left: 75%; transform: scale(.7) rotate(8deg); }
+
+section {
+  padding: 68px 8%;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 34px;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin: 10px 0 14px;
+}
+
+.section-heading p {
+  line-height: 1.8;
+  color: #5c665c;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  border: 1px solid #e2ddcf;
+  border-radius: 18px;
+  background: #fffdf7;
+}
+
+.card .symbol {
+  font-size: 2rem;
+}
+
+.card h3 {
+  font-size: 1.45rem;
+  margin: 15px 0 9px;
+}
+
+.card p {
+  line-height: 1.7;
+  color: #5c665c;
+}
+
+.kasbah-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-top: 30px;
+  padding: 22px;
+  border-radius: 18px;
+  background: #fffdf7;
+  border: 1px solid #e2ddcf;
+}
+
+.kasbah-feature img {
+  width: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.kasbah-feature p {
+  line-height: 1.8;
+  color: #5c665c;
+}
+
+.photo-credit {
+  font-size: .8rem;
+}
+
+.about {
+  background: #245747;
+  color: #fff9ed;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.about .big {
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  line-height: 1.2;
+  color: #e9b96e;
+}
+
+.about p {
+  line-height: 1.9;
+  color: #e0e8df;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr .8fr;
+  gap: 14px;
+}
+
+.gallery-item {
+  min-height: 190px;
+  border-radius: 15px;
+  padding: 18px;
+  display: flex;
+  align-items: end;
+  color: white;
+  font-size: 1.25rem;
+  background: linear-gradient(155deg, #b8c8a1, #456f50 60%, #263f32);
+}
+
+.gallery-item:nth-child(2) {
+  background: linear-gradient(155deg, #f0d9a6, #bd8855 60%, #70513b);
+}
+
+.gallery-item:nth-child(3) {
+  background: linear-gradient(155deg, #d8c5a3, #a36e4b 55%, #4c5740);
+}
+
+.contact {
+  background: #eee6d5;
+  text-align: center;
+}
+
+.contact p {
+  line-height: 1.8;
+  max-width: 600px;
+  margin: auto;
+}
+
+footer {
+  background: #172f25;
+  color: #e6eee5;
+  text-align: center;
+  padding: 25px;
+}
+
+@media (max-width: 760px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  nav {
+    gap: 14px;
+  }
+
+  .hero,
+  .about,
+  .kasbah-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .cards,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    min-height: 150px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="app">
+
+<header>
+  <div class="logo">سكورة ✦</div>
+  <nav>
+    <a href="#accueil">الرئيسية</a>
+    <a href="#decouvrir">اكتشف سكورة</a>
+    <a href="#apropos">من نحن</a>
+    <a href="#galerie">معرض الصور</a>
+    <a href="#contact">اتصل بنا</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="accueil">
+  <div>
+    <div class="eyebrow">إقليم ورزازات · المغرب</div>
+    <h1>سكورة، واحة في قلب جنوب المغرب.</h1>
+    <p>
+      بين أشجار النخيل والقصبات الطينية والمناظر الطبيعية الخلابة،
+      اكتشفوا سحر سكورة الهادئ وجمال واحة النخيل.
+    </p>
+    <a class="cta" href="#decouvrir">اكتشفوا سكورة ↓</a>
+  </div>
+
+  <div class="art" aria-label="رسم فني لواحة">
+    <div class="oasis-art">
+      <div class="sun"></div>
+      <div class="mountain"></div>
+      <div class="field"></div>
+      <div class="palm p1"></div>
+      <div class="palm p2"></div>
+      <div class="palm p3"></div>
+    </div>
+  </div>
+</section>
+
+<section id="decouvrir">
+  <div class="section-heading">
+    <div class="eyebrow">اكتشفوا</div>
+    <h2>منطقة غنية بالأصالة</h2>
+    <p>
+      تدعوكم سكورة إلى التمهل والاستمتاع بالتفاصيل
+      واكتشاف التراث العريق لجنوب المغرب.
+    </p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="symbol">🌴</div>
+      <h3>الواحة</h3>
+      <p>واحة نخيل مميزة وحدائق ومسالك تحكي قصة الحياة المرتبطة بالماء والأرض.</p>
+    </article>
+
+    <article class="card">
+      <div class="symbol">🏰</div>
+      <h3>القصبات</h3>
+      <p>مبانٍ تقليدية مشيدة بالطين، تشهد على مهارة معمارية توارثتها الأجيال.</p>
+    </article>
+
+    <article class="card">
+      <div class="symbol">🌄</div>
+      <h3>المناظر الطبيعية</h3>
+      <p>ضوء الصحراء والجبال في الأفق وألوان الجنوب الدافئة تمنح المنطقة طابعاً فريداً.</p>
+    </article>
+  </div>
+
+  <div class="kasbah-feature">
+    <img
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Kasbah%20Amridil%2C%20Marocco%20%28%D9%82%D8%B5%D8%A8%D8%A9%20%D8%A7%D9%85%D8%B1%D9%8A%D8%AF%D9%8A%D9%84%29.jpg?width=1280"
+      alt="قصبة أمريديل في سكورة"
+      loading="lazy"
+    >
+
+    <div>
+      <div class="eyebrow">تراث سكورة</div>
+      <h2>قصبة أمريديل</h2>
+      <p>
+        تُعد قصبة أمريديل من أشهر المعالم في سكورة.
+        شُيدت بالطين وتتميز بأبراجها وتفاصيلها التقليدية،
+        كما تعكس العمارة التاريخية لجنوب المغرب ومهارة الصناع المحليين.
+      </p>
+      <p>
+        ويجعل موقعها وسط واحة النخيل منها معلماً بارزاً
+        لاكتشاف تاريخ المنطقة وتراثها.
+      </p>
+      <p class="photo-credit">
+        مصدر الصورة:
+        <a href="https://commons.wikimedia.org/wiki/File:Kasbah_Amridil,_Marocco_(%D9%82%D8%B5%D8%A8%D8%A9_%D8%A7%D9%85%D8%B1%D9%8A%D8%AF%D9%8A%D9%84).jpg" target="_blank" rel="noopener">
+          Wikimedia Commons
+        </a>
+      </p>
+      <p>
+        <a href="https://commons.wikimedia.org/wiki/Category:Kasbah_Amridil" target="_blank" rel="noopener">
+          شاهدوا صوراً أخرى لقصبة أمريديل
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="apropos">
+  <div>
+    <div class="eyebrow" style="color:#e9b96e">من نحن</div>
+    <div class="big">روح<br>الجنوب.</div>
+  </div>
+
+  <div>
+    <h2>مرحباً بكم في سكورة</h2>
+    <p>
+      تقع سكورة في إقليم ورزازات بالمغرب، وتشتهر بواحتها
+      وتراثها المعماري التقليدي. هذا الموقع دعوة بسيطة
+      لاكتشاف المنطقة وطبيعتها وتاريخها وأجوائها الهادئة.
+    </p>
+    <p>
+      سواء كنتم زواراً أو من سكان المنطقة،
+      فلدى سكورة دائماً حكاية تستحق المشاركة.
+    </p>
+  </div>
+</section>
+
+<section id="galerie">
+  <div class="section-heading">
+    <div class="eyebrow">بالصور</div>
+    <h2>ألوان سكورة</h2>
+    <p>لمحات بصرية من واحة النخيل والطين والمناظر الطبيعية لجنوب المغرب.</p>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-item">واحة النخيل</div>
+    <div class="gallery-item">الأرض والتقاليد</div>
+    <div class="gallery-item">ضوء الجنوب</div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="eyebrow">لنبقَ على تواصل</div>
+  <h2>هل تعرفون سكورة؟</h2>
+  <p>
+    يمكن تطوير هذا الموقع بإضافة صوركم الخاصة وأماكنكم المفضلة
+    والمعلومات المحلية التي ترغبون في مشاركتها.
+  </p>
+  <a class="cta" href="#accueil">العودة إلى الأعلى ↑</a>
+</section>
+
+</main>
+
+<footer>
+  © 2026 — سكورة، المغرب · موقع للتعريف بالمنطقة
+</footer>
+
+</div>
+</body>
+</html>
