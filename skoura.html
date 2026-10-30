@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skoura — L’oasis des palmiers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Bouazzi Maghribi';
+  src: url('BouazziMaghribi-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+:root {
+  --site-primary: #245747;
+  --site-on-primary: #ffffff;
+  --site-secondary: #e9b96e;
+  --site-on-secondary: #2a241b;
+  --site-background: #f7f3e9;
+  --site-on-background: #242c25;
+  --site-font-body: 'Cairo', sans-serif;
+  --site-font-heading: 'Cairo', sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  color-scheme: light dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); direction:ltr; }
+body, body * { font-family: var(--site-font-body) !important; }
+#app { min-height: 100vh; background-color: light-dark(var(--site-background), #18231e); color: light-dark(var(--site-on-background), #f4f0e6); border-radius: 0; }
+header { background: var(--site-primary); color: var(--site-on-primary); padding: calc(18px * var(--site-spacing-scale)) clamp(20px, 6vw, 84px); display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.logo { font-family: var(--site-font-heading); font-size: 1.35rem; letter-spacing: .04em; }
+nav { display:flex; gap:22px; flex-wrap:wrap; }
+nav a { color: var(--site-on-primary); text-decoration:none; font-size:.92rem; }
+nav a:hover { text-decoration:underline; text-underline-offset:5px; }
+.hero { min-height: 480px; display:grid; grid-template-columns: 1.1fr .9fr; align-items:center; gap:32px; padding: clamp(38px, 7vw, 90px) clamp(20px, 8vw, 110px); background: linear-gradient(120deg, #f4e8d0 0%, #e9d2a8 55%, #c9d6b4 100%); color:#24392d; position:relative; overflow:hidden; }
+.hero:after { content:'☼'; position:absolute; font-size:270px; right:5%; top:-60px; color:rgba(255,255,255,.24); pointer-events:none; }
+.eyebrow { text-transform:uppercase; letter-spacing:.18em; font-size:.76rem; font-weight:bold; color:#56755c; }
+h1,h2,h3 { font-family:var(--site-font-heading); font-weight:normal; }
+h1 { font-size:calc(clamp(2.6rem, 5.8vw, 5rem) * var(--site-heading-scale)); line-height:1.02; margin:16px 0 22px; max-width:650px; }
+.hero p { font-size:1.1rem; line-height:1.8; max-width:560px; }
+.cta { display:inline-block; background:var(--site-primary); color:white; text-decoration:none; border-radius:calc(999px * var(--site-radius-scale)); padding:14px 22px; margin-top:14px; font-weight:bold; }
+.art { min-height:290px; display:flex; align-items:end; justify-content:center; position:relative; z-index:1; }
+.oasis-art { width:min(100%,420px); height:320px; position:relative; overflow:hidden; border-radius: 48% 48% 18px 18px; background:linear-gradient(#e6bd7d 0 34%, #d5a56a 35% 46%, #8aa77b 47% 100%); box-shadow:0 24px 45px #4c56342b; }
+.sun { position:absolute; width:72px; height:72px; background:#fff0c7; border-radius:50%; right:50px; top:35px; }
+.mountain { position:absolute; bottom:80px; left:-10%; width:120%; height:130px; background:#b9805b; clip-path:polygon(0 100%, 15% 35%, 29% 72%, 49% 5%, 66% 65%, 82% 28%, 100% 100%); opacity:.78; }
+.field { position:absolute; bottom:0; width:100%; height:105px; background:repeating-linear-gradient(168deg,#587e55 0 10px,#78966b 11px 20px); }
+.palm { position:absolute; bottom:65px; width:10px; height:140px; background:#594936; border-radius:8px; transform:rotate(5deg); }
+.palm:before { content:''; position:absolute; width:110px; height:65px; left:-50px; top:-18px; background:#285b3d; clip-path:polygon(50% 50%,0 12%,42% 40%,18% 0,50% 35%,80% 0,60% 42%,100% 15%,68% 58%,96% 72%,58% 68%); }
+.p1 {left:27%; transform:scale(.8) rotate(-7deg); transform-origin:bottom;}.p2 {left:52%; transform:scale(1.05) rotate(3deg); transform-origin:bottom;}.p3 {left:75%; transform:scale(.7) rotate(8deg); transform-origin:bottom;}
+section { padding: calc(68px * var(--site-spacing-scale)) clamp(20px, 8vw, 110px); }
+.section-heading { max-width:700px; margin-bottom:34px; }
+h2 { font-size:calc(clamp(2rem, 3.5vw, 3rem) * var(--site-heading-scale)); margin:10px 0 14px; }
+.section-heading p { line-height:1.75; color:light-dark(#5c665c,#c8d1c8); }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.card { padding:25px; border:1px solid light-dark(#e2ddcf,#34453a); border-radius:calc(18px * var(--site-radius-scale)); background:light-dark(#fffdf7,#202e26); }
+.card .symbol { font-size:2rem; }
+.card h3 { font-size:1.45rem; margin:15px 0 9px; }
+.card p { line-height:1.7; color:light-dark(#5c665c,#c8d1c8); }
+.about { background:var(--site-primary); color:#fff9ed; display:grid; grid-template-columns:.8fr 1.2fr; gap:45px; align-items:center; }
+.about .big { font-family:var(--site-font-heading); font-size:clamp(3rem,6vw,5.2rem); line-height:1; color:var(--site-secondary); }
+.about p { line-height:1.9; color:#e0e8df; }
+.gallery { display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:14px; }
+.gallery-item { min-height:190px; border-radius:calc(15px * var(--site-radius-scale)); padding:18px; display:flex; align-items:end; color:white; font-family:var(--site-font-heading); font-size:1.25rem; background:linear-gradient(155deg,#b8c8a1,#456f50 60%,#263f32); }
+.gallery-item:nth-child(2) { background:linear-gradient(155deg,#f0d9a6,#bd8855 60%,#70513b); }
+.gallery-item:nth-child(3) { background:linear-gradient(155deg,#d8c5a3,#a36e4b 55%,#4c5740); }
+.kasbah-feature { display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center; margin-top:30px; padding:22px; border-radius:calc(18px * var(--site-radius-scale)); background:light-dark(#fffdf7,#202e26); border:1px solid light-dark(#e2ddcf,#34453a); }
+.kasbah-feature img { display:block; width:100%; height:100%; min-height:280px; object-fit:cover; border-radius:12px; }
+.kasbah-feature p { line-height:1.8; color:light-dark(#5c665c,#c8d1c8); }
+.photo-credit { font-size:.8rem; opacity:.8; }
+.contact { background:light-dark(#eee6d5,#1c2922); text-align:center; }
+.contact p { line-height:1.8; max-width:600px; margin:0 auto; }
+footer { background:#172f25; color:#e6eee5; text-align:center; padding:25px; font-size:.88rem; }
+@media (max-width:760px) { header { align-items:flex-start; flex-direction:column; } nav { gap:14px; } .hero { grid-template-columns:1fr; } .art { min-height:250px; } .oasis-art { height:260px; } .cards { grid-template-columns:1fr; } .about { grid-template-columns:1fr; } .gallery { grid-template-columns:1fr; } .gallery-item { min-height:150px; } .kasbah-feature { grid-template-columns:1fr; } .kasbah-feature img { min-height:220px; } }
+</style>
+</head>
+<body>
+<div id="app">
+<header><div class="logo">Skoura <span style="color:#e9b96e">✦</span></div><nav><a href="#accueil">Accueil</a><a href="#decouvrir">Découvrir Skoura</a><a href="#apropos">À propos</a><a href="#galerie">Galerie</a><a href="#contact">Contact</a></nav></header>
+<main>
+<section class="hero" id="accueil"><div><div class="eyebrow">Province de Ouarzazate · Maroc</div><h1>Skoura, une oasis au cœur du Sud marocain.</h1><p>Entre les palmiers, les kasbahs en pisé et les paysages magnifiques, découvrez le charme paisible de Skoura et la beauté de son oasis.</p><a class="cta" href="#decouvrir">Découvrir Skoura ↓</a></div><div class="art" aria-label="Illustration d’une oasis"><div class="oasis-art"><div class="sun"></div><div class="mountain"></div><div class="field"></div><div class="palm p1"></div><div class="palm p2"></div><div class="palm p3"></div></div></div></section>
+<section id="decouvrir"><div class="section-heading"><div class="eyebrow">À découvrir</div><h2>Une région riche en authenticité</h2><p>Skoura vous invite à prendre le temps, à apprécier chaque détail et à découvrir le patrimoine du Sud marocain.</p></div><div class="cards"><article class="card"><div class="symbol">🌴</div><h3>L’oasis</h3><p>Une magnifique palmeraie, des jardins et des sentiers qui racontent une vie étroitement liée à l’eau et à la terre.</p></article><article class="card"><div class="symbol">🏰</div><h3>Les kasbahs</h3><p>Des constructions traditionnelles en pisé qui témoignent d’un savoir-faire architectural transmis de génération en génération.</p></article><article class="card"><div class="symbol">🌄</div><h3>Les paysages</h3><p>La lumière du désert, les montagnes à l’horizon et les couleurs chaleureuses du Sud donnent à la région un caractère unique.</p></article></div><div class="kasbah-feature"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kasbah%20Amridil%2C%20Marocco%20%28%D9%82%D8%B5%D8%A8%D8%A9%20%D8%A7%D9%85%D8%B1%D9%8A%D8%AF%D9%8A%D9%84%29.jpg?width=1280" alt="La kasbah Amridil à Skoura, photographiée par Petar Milošević en 2024" loading="lazy"><div><div class="eyebrow">Patrimoine de Skoura</div><h2>La kasbah Amridil</h2><p>La kasbah Amridil est l’un des monuments les plus célèbres de Skoura. Construite en pisé, elle se distingue par ses tours et ses détails traditionnels. Elle reflète l’architecture historique du Sud marocain et le savoir-faire des artisans locaux.</p><p>Située au cœur de la palmeraie, elle constitue un lieu incontournable pour découvrir l’histoire et le patrimoine de la région.</p><p class="photo-credit">Photo : Petar Milošević, 2024 · Licence CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:Kasbah_Amridil,_Marocco_(%D9%82%D8%B5%D8%A8%D8%A9_%D8%A7%D9%85%D8%B1%D9%8A%D8%AF%D9%8A%D9%84).jpg" target="_blank" rel="noopener">Source et licence de la photo ↗</a></p><p><a href="https://commons.wikimedia.org/wiki/Category:Kasbah_Amridil" target="_blank" rel="noopener">Voir d’autres photos de la kasbah Amridil ↗</a></p></div></div></section>
+<section class="about" id="apropos"><div><div class="eyebrow" style="color:#e9b96e">À propos</div><div class="big">L’âme<br>du Sud.</div></div><div><h2>Bienvenue à Skoura</h2><p>Située dans la province de Ouarzazate, au Maroc, Skoura est connue pour sa palmeraie et son patrimoine architectural traditionnel. Ce site est une invitation à découvrir la région, sa nature, son histoire et son atmosphère paisible.</p><p>Que vous soyez visiteurs ou habitants de la région, Skoura a toujours une histoire à partager.</p></div></section>
+<section id="galerie"><div class="section-heading"><div class="eyebrow">En images</div><h2>Les couleurs de Skoura</h2><p>Un aperçu de la palmeraie, de l’architecture en terre et des paysages du Sud marocain.</p></div><div class="gallery"><div class="gallery-item">La palmeraie</div><div class="gallery-item">La terre et les traditions</div><div class="gallery-item">La lumière du Sud</div></div></section>
+<section class="contact" id="contact"><div class="eyebrow">Restons en contact</div><h2>Connaissez-vous Skoura ?</h2><p>Ce site peut être enrichi avec vos propres photos, vos lieux préférés et les informations locales que vous souhaitez partager.</p><a class="cta" href="#accueil">Retour en haut ↑</a></section>
+</main><footer>© 2026 — Skoura, Maroc · Un site pour faire découvrir la région</footer>
+</div>
+</body>
+</html>
